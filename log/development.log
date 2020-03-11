@@ -1,0 +1,973 @@
+  [1m[35m (46.4ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (1.4ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (1.4ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" varchar NOT NULL PRIMARY KEY)[0m
+  [1m[35m (1.5ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" varchar NOT NULL PRIMARY KEY, "value" varchar, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Migrating to CreateUsers (20200310151538)
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.7ms)[0m  [1m[35mCREATE TABLE "users" ("id" integer PRIMARY KEY AUTOINCREMENT NOT NULL, "username" varchar, "favourite_language" varchar, "created_at" datetime(6) NOT NULL, "updated_at" datetime(6) NOT NULL)[0m
+  [1m[36mprimary::SchemaMigration Create (0.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20200310151538"]]
+  [1m[35m (3.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.3ms)[0m  [1m[34mSELECT "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Create (1.1ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["key", "environment"], ["value", "development"], ["created_at", "2020-03-11 11:25:22.272204"], ["updated_at", "2020-03-11 11:25:22.272204"]]
+  [1m[35m (1.2ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Started GET "/" for ::1 at 2020-03-11 11:27:10 +0000
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by Rails::WelcomeController#index as HTML
+  Rendering /Users/andrewlewell/.rvm/gems/ruby-2.6.1/gems/railties-6.0.2.1/lib/rails/templates/rails/welcome/index.html.erb
+  Rendered /Users/andrewlewell/.rvm/gems/ruby-2.6.1/gems/railties-6.0.2.1/lib/rails/templates/rails/welcome/index.html.erb (Duration: 57.1ms | Allocations: 481)
+Completed 200 OK in 130ms (Views: 94.5ms | ActiveRecord: 0.0ms | Allocations: 2745)
+
+
+Started GET "/users" for ::1 at 2020-03-11 11:27:39 +0000
+  
+ActionController::RoutingError (uninitialized constant UsersController
+Did you mean?  UserController):
+  
+activesupport (6.0.2.1) lib/active_support/inflector/methods.rb:282:in `const_get'
+activesupport (6.0.2.1) lib/active_support/inflector/methods.rb:282:in `block in constantize'
+activesupport (6.0.2.1) lib/active_support/inflector/methods.rb:280:in `each'
+activesupport (6.0.2.1) lib/active_support/inflector/methods.rb:280:in `inject'
+activesupport (6.0.2.1) lib/active_support/inflector/methods.rb:280:in `constantize'
+activesupport (6.0.2.1) lib/active_support/dependencies/zeitwerk_integration.rb:19:in `constantize'
+actionpack (6.0.2.1) lib/action_dispatch/http/request.rb:88:in `controller_class_for'
+actionpack (6.0.2.1) lib/action_dispatch/http/request.rb:81:in `controller_class'
+actionpack (6.0.2.1) lib/action_dispatch/routing/route_set.rb:45:in `controller'
+actionpack (6.0.2.1) lib/action_dispatch/routing/route_set.rb:31:in `serve'
+actionpack (6.0.2.1) lib/action_dispatch/journey/router.rb:49:in `block in serve'
+actionpack (6.0.2.1) lib/action_dispatch/journey/router.rb:32:in `each'
+actionpack (6.0.2.1) lib/action_dispatch/journey/router.rb:32:in `serve'
+actionpack (6.0.2.1) lib/action_dispatch/routing/route_set.rb:837:in `call'
+rack (2.2.2) lib/rack/tempfile_reaper.rb:15:in `call'
+rack (2.2.2) lib/rack/etag.rb:27:in `call'
+rack (2.2.2) lib/rack/conditional_get.rb:27:in `call'
+rack (2.2.2) lib/rack/head.rb:12:in `call'
+actionpack (6.0.2.1) lib/action_dispatch/http/content_security_policy.rb:18:in `call'
+rack (2.2.2) lib/rack/session/abstract/id.rb:266:in `context'
+rack (2.2.2) lib/rack/session/abstract/id.rb:260:in `call'
+actionpack (6.0.2.1) lib/action_dispatch/middleware/cookies.rb:648:in `call'
+activerecord (6.0.2.1) lib/active_record/migration.rb:567:in `call'
+actionpack (6.0.2.1) lib/action_dispatch/middleware/callbacks.rb:27:in `block in call'
+activesupport (6.0.2.1) lib/active_support/callbacks.rb:101:in `run_callbacks'
+actionpack (6.0.2.1) lib/action_dispatch/middleware/callbacks.rb:26:in `call'
+actionpack (6.0.2.1) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (6.0.2.1) lib/action_dispatch/middleware/actionable_exceptions.rb:17:in `call'
+actionpack (6.0.2.1) lib/action_dispatch/middleware/debug_exceptions.rb:32:in `call'
+web-console (4.0.1) lib/web_console/middleware.rb:132:in `call_app'
+web-console (4.0.1) lib/web_console/middleware.rb:28:in `block in call'
+web-console (4.0.1) lib/web_console/middleware.rb:17:in `catch'
+web-console (4.0.1) lib/web_console/middleware.rb:17:in `call'
+actionpack (6.0.2.1) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (6.0.2.1) lib/rails/rack/logger.rb:38:in `call_app'
+railties (6.0.2.1) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (6.0.2.1) lib/active_support/tagged_logging.rb:80:in `block in tagged'
+activesupport (6.0.2.1) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (6.0.2.1) lib/active_support/tagged_logging.rb:80:in `tagged'
+railties (6.0.2.1) lib/rails/rack/logger.rb:26:in `call'
+sprockets-rails (3.2.1) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (6.0.2.1) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (6.0.2.1) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.2.2) lib/rack/method_override.rb:24:in `call'
+rack (2.2.2) lib/rack/runtime.rb:22:in `call'
+activesupport (6.0.2.1) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (6.0.2.1) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (6.0.2.1) lib/action_dispatch/middleware/static.rb:126:in `call'
+rack (2.2.2) lib/rack/sendfile.rb:110:in `call'
+actionpack (6.0.2.1) lib/action_dispatch/middleware/host_authorization.rb:83:in `call'
+webpacker (4.2.2) lib/webpacker/dev_server_proxy.rb:23:in `perform_request'
+rack-proxy (0.6.5) lib/rack/proxy.rb:57:in `call'
+railties (6.0.2.1) lib/rails/engine.rb:526:in `call'
+puma (4.3.3) lib/puma/configuration.rb:228:in `call'
+puma (4.3.3) lib/puma/server.rb:682:in `handle_request'
+puma (4.3.3) lib/puma/server.rb:472:in `process_client'
+puma (4.3.3) lib/puma/server.rb:328:in `block in run'
+puma (4.3.3) lib/puma/thread_pool.rb:134:in `block in spawn_thread'
+Started GET "/users" for ::1 at 2020-03-11 11:28:46 +0000
+  [1m[35m (1.7ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by UserController#new as HTML
+Completed 400 Bad Request in 32ms (ActiveRecord: 0.0ms | Allocations: 1048)
+
+
+  
+ActionController::ParameterMissing (param is missing or the value is empty: user):
+  
+app/controllers/user_controller.rb:28:in `user_params'
+app/controllers/user_controller.rb:8:in `new'
+Started GET "/users" for ::1 at 2020-03-11 11:29:13 +0000
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by UserController#new as HTML
+  Rendering user/find.html.erb within layouts/application
+  Rendered user/find.html.erb within layouts/application (Duration: 31.8ms | Allocations: 991)
+Completed 500 Internal Server Error in 43ms (ActiveRecord: 0.0ms | Allocations: 2093)
+
+
+  
+ActionView::Template::Error (First argument in form cannot contain nil or be empty):
+    1: <h1>Find GitHub User</h1>
+    2: <div>
+    3:   <%= form_for @user do |f| %>
+    4:     <%= f.label :username %><br />
+    5:     <%= f.text_field :username %><br />
+    6:     <%= f.submit %>
+  
+app/views/user/find.html.erb:3
+app/controllers/user_controller.rb:9:in `new'
+Started GET "/users" for ::1 at 2020-03-11 11:29:37 +0000
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by UserController#new as HTML
+Completed 400 Bad Request in 3ms (ActiveRecord: 0.0ms | Allocations: 808)
+
+
+  
+ActionController::ParameterMissing (param is missing or the value is empty: user):
+  
+app/controllers/user_controller.rb:27:in `user_params'
+app/controllers/user_controller.rb:8:in `new'
+Started GET "/users" for ::1 at 2020-03-11 11:30:45 +0000
+  [1m[35m (1.6ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (6.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  
+ActionController::RoutingError (No route matches [GET] "/users"):
+  
+actionpack (6.0.2.1) lib/action_dispatch/middleware/debug_exceptions.rb:36:in `call'
+web-console (4.0.1) lib/web_console/middleware.rb:132:in `call_app'
+web-console (4.0.1) lib/web_console/middleware.rb:28:in `block in call'
+web-console (4.0.1) lib/web_console/middleware.rb:17:in `catch'
+web-console (4.0.1) lib/web_console/middleware.rb:17:in `call'
+actionpack (6.0.2.1) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (6.0.2.1) lib/rails/rack/logger.rb:38:in `call_app'
+railties (6.0.2.1) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (6.0.2.1) lib/active_support/tagged_logging.rb:80:in `block in tagged'
+activesupport (6.0.2.1) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (6.0.2.1) lib/active_support/tagged_logging.rb:80:in `tagged'
+railties (6.0.2.1) lib/rails/rack/logger.rb:26:in `call'
+sprockets-rails (3.2.1) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (6.0.2.1) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (6.0.2.1) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.2.2) lib/rack/method_override.rb:24:in `call'
+rack (2.2.2) lib/rack/runtime.rb:22:in `call'
+activesupport (6.0.2.1) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (6.0.2.1) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (6.0.2.1) lib/action_dispatch/middleware/static.rb:126:in `call'
+rack (2.2.2) lib/rack/sendfile.rb:110:in `call'
+actionpack (6.0.2.1) lib/action_dispatch/middleware/host_authorization.rb:83:in `call'
+webpacker (4.2.2) lib/webpacker/dev_server_proxy.rb:23:in `perform_request'
+rack-proxy (0.6.5) lib/rack/proxy.rb:57:in `call'
+railties (6.0.2.1) lib/rails/engine.rb:526:in `call'
+puma (4.3.3) lib/puma/configuration.rb:228:in `call'
+puma (4.3.3) lib/puma/server.rb:682:in `handle_request'
+puma (4.3.3) lib/puma/server.rb:472:in `process_client'
+puma (4.3.3) lib/puma/server.rb:328:in `block in run'
+puma (4.3.3) lib/puma/thread_pool.rb:134:in `block in spawn_thread'
+Started GET "/users/find" for ::1 at 2020-03-11 11:30:48 +0000
+Processing by UserController#show as HTML
+  Parameters: {"id"=>"find"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", nil], ["LIMIT", 1]]
+  ↳ app/controllers/user_controller.rb:4:in `show'
+Completed 404 Not Found in 66ms (ActiveRecord: 6.0ms | Allocations: 2448)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find User with 'id'=find):
+  
+app/controllers/user_controller.rb:4:in `show'
+Started GET "/users/find" for ::1 at 2020-03-11 11:31:12 +0000
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by UserController#show as HTML
+  Parameters: {"id"=>"find"}
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", nil], ["LIMIT", 1]]
+  ↳ app/controllers/user_controller.rb:9:in `show'
+Completed 404 Not Found in 14ms (ActiveRecord: 1.8ms | Allocations: 1971)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find User with 'id'=find):
+  
+app/controllers/user_controller.rb:9:in `show'
+Started GET "/users/find" for ::1 at 2020-03-11 11:31:15 +0000
+Processing by UserController#show as HTML
+  Parameters: {"id"=>"find"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", nil], ["LIMIT", 1]]
+  ↳ app/controllers/user_controller.rb:9:in `show'
+Completed 404 Not Found in 3ms (ActiveRecord: 0.2ms | Allocations: 968)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find User with 'id'=find):
+  
+app/controllers/user_controller.rb:9:in `show'
+Started GET "/users/find" for ::1 at 2020-03-11 11:31:16 +0000
+Processing by UserController#show as HTML
+  Parameters: {"id"=>"find"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", nil], ["LIMIT", 1]]
+  ↳ app/controllers/user_controller.rb:9:in `show'
+Completed 404 Not Found in 2ms (ActiveRecord: 0.2ms | Allocations: 954)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find User with 'id'=find):
+  
+app/controllers/user_controller.rb:9:in `show'
+Started GET "/user/find" for ::1 at 2020-03-11 11:31:28 +0000
+Processing by UserController#new as HTML
+Completed 400 Bad Request in 1ms (ActiveRecord: 0.0ms | Allocations: 490)
+
+
+  
+ActionController::ParameterMissing (param is missing or the value is empty: user):
+  
+app/controllers/user_controller.rb:27:in `user_params'
+app/controllers/user_controller.rb:4:in `new'
+Started GET "/user/find" for ::1 at 2020-03-11 11:31:51 +0000
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by UserController#new as HTML
+  Rendering user/find.html.erb within layouts/application
+  Rendered user/find.html.erb within layouts/application (Duration: 92.7ms | Allocations: 4474)
+[Webpacker] Compiling...
+[Webpacker] Compiled all packs in /Users/andrewlewell/Development/code/chargy/favourite-language/public/packs
+[Webpacker] Hash: 32e57f147dbdcbbf0c82
+Version: webpack 4.42.0
+Time: 4108ms
+Built at: 11/03/2020 11:32:00
+                                     Asset       Size       Chunks                         Chunk Names
+    js/application-bbe9c4a129ab949e0636.js    124 KiB  application  [emitted] [immutable]  application
+js/application-bbe9c4a129ab949e0636.js.map    139 KiB  application  [emitted] [dev]        application
+                             manifest.json  364 bytes               [emitted]              
+Entrypoint application = js/application-bbe9c4a129ab949e0636.js js/application-bbe9c4a129ab949e0636.js.map
+[./app/javascript/channels sync recursive _channel\.js$] ./app/javascript/channels sync _channel\.js$ 160 bytes {application} [built]
+[./app/javascript/channels/index.js] 211 bytes {application} [built]
+[./app/javascript/packs/application.js] 749 bytes {application} [built]
+[./node_modules/webpack/buildin/module.js] (webpack)/buildin/module.js 552 bytes {application} [built]
+    + 3 hidden modules
+
+Completed 200 OK in 8959ms (Views: 8951.5ms | ActiveRecord: 1.2ms | Allocations: 27155)
+
+
+Started POST "/users" for ::1 at 2020-03-11 11:32:23 +0000
+Processing by UserController#create as HTML
+  Parameters: {"authenticity_token"=>"eacjJAnmfUy4V2Q0cNF4693UzEFBpPZbRxY+kdIeTTxn/cP8ZEBKF5qSxQSZhK1bQLwHdEAAxNcwlNVS4Mx3Hg==", "user"=>{"username"=>"andrew-lewell"}, "commit"=>"Create User"}
+Completed 500 Internal Server Error in 39ms (ActiveRecord: 0.0ms | Allocations: 3597)
+
+
+  
+NoMethodError (undefined method `favourite_language' for #<Class:0x00007fd08768a038>):
+  
+app/controllers/user_controller.rb:15:in `create'
+Started POST "/users" for ::1 at 2020-03-11 11:33:23 +0000
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by UserController#create as HTML
+  Parameters: {"authenticity_token"=>"eacjJAnmfUy4V2Q0cNF4693UzEFBpPZbRxY+kdIeTTxn/cP8ZEBKF5qSxQSZhK1bQLwHdEAAxNcwlNVS4Mx3Hg==", "user"=>{"username"=>"andrew-lewell"}, "commit"=>"Create User"}
+Completed 500 Internal Server Error in 42ms (ActiveRecord: 1.0ms | Allocations: 7182)
+
+
+  
+NoMethodError (undefined method `favourite_programming_language' for #<Class:0x00007fd0879b7e18>):
+  
+app/controllers/user_controller.rb:15:in `create'
+Started POST "/users" for ::1 at 2020-03-11 11:33:58 +0000
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by UserController#create as HTML
+  Parameters: {"authenticity_token"=>"eacjJAnmfUy4V2Q0cNF4693UzEFBpPZbRxY+kdIeTTxn/cP8ZEBKF5qSxQSZhK1bQLwHdEAAxNcwlNVS4Mx3Hg==", "user"=>{"username"=>"andrew-lewell"}, "commit"=>"Create User"}
+Completed 500 Internal Server Error in 599ms (ActiveRecord: 0.7ms | Allocations: 7054)
+
+
+  
+Octokit::Unauthorized (GET https://api.github.com/user/repos: 401 - Requires authentication // See: https://developer.github.com/v3/repos/#list-your-repositories):
+  
+app/models/user.rb:13:in `repositories'
+app/models/user.rb:6:in `favourite_programming_language'
+app/controllers/user_controller.rb:15:in `create'
+Started POST "/users" for ::1 at 2020-03-11 11:46:18 +0000
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by UserController#create as HTML
+  Parameters: {"authenticity_token"=>"eacjJAnmfUy4V2Q0cNF4693UzEFBpPZbRxY+kdIeTTxn/cP8ZEBKF5qSxQSZhK1bQLwHdEAAxNcwlNVS4Mx3Hg==", "user"=>{"username"=>"andrew-lewell"}, "commit"=>"Create User"}
+Completed 500 Internal Server Error in 35ms (ActiveRecord: 0.0ms | Allocations: 6044)
+
+
+  
+NoMethodError (undefined method `favourite_programming_language' for #<User:0x00007fd08b150988>
+Did you mean?  favourite_language):
+  
+app/controllers/user_controller.rb:17:in `create'
+Started POST "/users" for ::1 at 2020-03-11 11:47:22 +0000
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by UserController#create as HTML
+  Parameters: {"authenticity_token"=>"eacjJAnmfUy4V2Q0cNF4693UzEFBpPZbRxY+kdIeTTxn/cP8ZEBKF5qSxQSZhK1bQLwHdEAAxNcwlNVS4Mx3Hg==", "user"=>{"username"=>"andrew-lewell"}, "commit"=>"Create User"}
+Completed 500 Internal Server Error in 30ms (ActiveRecord: 1.5ms | Allocations: 4823)
+
+
+  
+NoMethodError (undefined method `username' for nil:NilClass):
+  
+app/models/user.rb:13:in `repositories'
+app/models/user.rb:6:in `favourite_programming_language'
+app/controllers/user_controller.rb:15:in `create'
+Started POST "/users" for ::1 at 2020-03-11 11:49:03 +0000
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by UserController#create as HTML
+  Parameters: {"authenticity_token"=>"eacjJAnmfUy4V2Q0cNF4693UzEFBpPZbRxY+kdIeTTxn/cP8ZEBKF5qSxQSZhK1bQLwHdEAAxNcwlNVS4Mx3Hg==", "user"=>{"username"=>"andrew-lewell"}, "commit"=>"Create User"}
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/user_controller.rb:17:in `create'
+  [1m[36mUser Create (1.9ms)[0m  [1m[32mINSERT INTO "users" ("username", "favourite_language", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["username", "andrew-lewell"], ["favourite_language", "JavaScript"], ["created_at", "2020-03-11 11:49:05.234687"], ["updated_at", "2020-03-11 11:49:05.234687"]]
+  ↳ app/controllers/user_controller.rb:17:in `create'
+  [1m[35m (0.8ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/user_controller.rb:17:in `create'
+Completed 500 Internal Server Error in 1493ms (ActiveRecord: 3.5ms | Allocations: 151848)
+
+
+  
+NoMethodError (undefined method `user_path' for #<UserController:0x00007fd0875c8730>
+Did you mean?  users_path):
+  
+app/controllers/user_controller.rb:18:in `create'
+Started POST "/users" for ::1 at 2020-03-11 11:50:22 +0000
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by UserController#create as HTML
+  Parameters: {"authenticity_token"=>"eacjJAnmfUy4V2Q0cNF4693UzEFBpPZbRxY+kdIeTTxn/cP8ZEBKF5qSxQSZhK1bQLwHdEAAxNcwlNVS4Mx3Hg==", "user"=>{"username"=>"andrew-lewell"}, "commit"=>"Create User"}
+  [1m[35m (0.0ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/user_controller.rb:17:in `create'
+  [1m[36mUser Create (0.4ms)[0m  [1m[32mINSERT INTO "users" ("username", "favourite_language", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["username", "andrew-lewell"], ["favourite_language", "JavaScript"], ["created_at", "2020-03-11 11:50:23.710193"], ["updated_at", "2020-03-11 11:50:23.710193"]]
+  ↳ app/controllers/user_controller.rb:17:in `create'
+  [1m[35m (1.4ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/user_controller.rb:17:in `create'
+Redirected to http://localhost:3000/users.2
+Completed 302 Found in 1573ms (ActiveRecord: 3.4ms | Allocations: 103284)
+
+
+Started GET "/users.2" for ::1 at 2020-03-11 11:50:23 +0000
+  
+ActionController::RoutingError (No route matches [GET] "/users.2"):
+  
+actionpack (6.0.2.1) lib/action_dispatch/middleware/debug_exceptions.rb:36:in `call'
+web-console (4.0.1) lib/web_console/middleware.rb:132:in `call_app'
+web-console (4.0.1) lib/web_console/middleware.rb:28:in `block in call'
+web-console (4.0.1) lib/web_console/middleware.rb:17:in `catch'
+web-console (4.0.1) lib/web_console/middleware.rb:17:in `call'
+actionpack (6.0.2.1) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (6.0.2.1) lib/rails/rack/logger.rb:38:in `call_app'
+railties (6.0.2.1) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (6.0.2.1) lib/active_support/tagged_logging.rb:80:in `block in tagged'
+activesupport (6.0.2.1) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (6.0.2.1) lib/active_support/tagged_logging.rb:80:in `tagged'
+railties (6.0.2.1) lib/rails/rack/logger.rb:26:in `call'
+sprockets-rails (3.2.1) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (6.0.2.1) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (6.0.2.1) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.2.2) lib/rack/method_override.rb:24:in `call'
+rack (2.2.2) lib/rack/runtime.rb:22:in `call'
+activesupport (6.0.2.1) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (6.0.2.1) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (6.0.2.1) lib/action_dispatch/middleware/static.rb:126:in `call'
+rack (2.2.2) lib/rack/sendfile.rb:110:in `call'
+actionpack (6.0.2.1) lib/action_dispatch/middleware/host_authorization.rb:83:in `call'
+webpacker (4.2.2) lib/webpacker/dev_server_proxy.rb:23:in `perform_request'
+rack-proxy (0.6.5) lib/rack/proxy.rb:57:in `call'
+railties (6.0.2.1) lib/rails/engine.rb:526:in `call'
+puma (4.3.3) lib/puma/configuration.rb:228:in `call'
+puma (4.3.3) lib/puma/server.rb:682:in `handle_request'
+puma (4.3.3) lib/puma/server.rb:472:in `process_client'
+puma (4.3.3) lib/puma/server.rb:328:in `block in run'
+puma (4.3.3) lib/puma/thread_pool.rb:134:in `block in spawn_thread'
+Started GET "/users/2" for ::1 at 2020-03-11 11:51:53 +0000
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by UserController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/user_controller.rb:9:in `show'
+  Rendering user/show.html.erb within layouts/application
+  Rendered user/show.html.erb within layouts/application (Duration: 8.3ms | Allocations: 128)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 51ms (Views: 41.5ms | ActiveRecord: 1.0ms | Allocations: 8393)
+
+
+Started GET "/users/1" for ::1 at 2020-03-11 11:52:01 +0000
+Processing by UserController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/user_controller.rb:9:in `show'
+  Rendering user/show.html.erb within layouts/application
+  Rendered user/show.html.erb within layouts/application (Duration: 0.1ms | Allocations: 10)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 32ms (Views: 28.1ms | ActiveRecord: 0.5ms | Allocations: 4308)
+
+
+Started GET "/users/2" for ::1 at 2020-03-11 11:52:07 +0000
+Processing by UserController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/user_controller.rb:9:in `show'
+  Rendering user/show.html.erb within layouts/application
+  Rendered user/show.html.erb within layouts/application (Duration: 0.1ms | Allocations: 10)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 28ms (Views: 23.3ms | ActiveRecord: 0.3ms | Allocations: 4314)
+
+
+Started GET "/user/find" for ::1 at 2020-03-11 11:58:38 +0000
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by UserController#new as HTML
+  Rendering user/find.html.erb within layouts/application
+  Rendered user/find.html.erb within layouts/application (Duration: 1.4ms | Allocations: 574)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 49ms (Views: 33.1ms | ActiveRecord: 0.0ms | Allocations: 7789)
+
+
+Started POST "/users" for ::1 at 2020-03-11 11:59:02 +0000
+Processing by UserController#create as HTML
+  Parameters: {"authenticity_token"=>"w/2LrjE4ejYpR6i9v3fEU04kAZq4dr6CVenkYR90AtHdp2t2XJ5NbQuCCY1WIhHj00zKr7nSjA4iaw+iLaY48w==", "user"=>{"username"=>"PianoFF"}, "commit"=>"Create User"}
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/user_controller.rb:18:in `create'
+  [1m[36mUser Create (1.6ms)[0m  [1m[32mINSERT INTO "users" ("username", "favourite_language", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["username", "PianoFF"], ["favourite_language", "JavaScript"], ["created_at", "2020-03-11 11:59:03.892047"], ["updated_at", "2020-03-11 11:59:03.892047"]]
+  ↳ app/controllers/user_controller.rb:18:in `create'
+  [1m[35m (0.9ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/user_controller.rb:18:in `create'
+Redirected to http://localhost:3000/users.3
+Completed 302 Found in 1392ms (ActiveRecord: 2.5ms | Allocations: 96744)
+
+
+Started GET "/users.3" for ::1 at 2020-03-11 11:59:03 +0000
+  
+ActionController::RoutingError (No route matches [GET] "/users.3"):
+  
+actionpack (6.0.2.1) lib/action_dispatch/middleware/debug_exceptions.rb:36:in `call'
+web-console (4.0.1) lib/web_console/middleware.rb:132:in `call_app'
+web-console (4.0.1) lib/web_console/middleware.rb:28:in `block in call'
+web-console (4.0.1) lib/web_console/middleware.rb:17:in `catch'
+web-console (4.0.1) lib/web_console/middleware.rb:17:in `call'
+actionpack (6.0.2.1) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (6.0.2.1) lib/rails/rack/logger.rb:38:in `call_app'
+railties (6.0.2.1) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (6.0.2.1) lib/active_support/tagged_logging.rb:80:in `block in tagged'
+activesupport (6.0.2.1) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (6.0.2.1) lib/active_support/tagged_logging.rb:80:in `tagged'
+railties (6.0.2.1) lib/rails/rack/logger.rb:26:in `call'
+sprockets-rails (3.2.1) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (6.0.2.1) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (6.0.2.1) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.2.2) lib/rack/method_override.rb:24:in `call'
+rack (2.2.2) lib/rack/runtime.rb:22:in `call'
+activesupport (6.0.2.1) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (6.0.2.1) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (6.0.2.1) lib/action_dispatch/middleware/static.rb:126:in `call'
+rack (2.2.2) lib/rack/sendfile.rb:110:in `call'
+actionpack (6.0.2.1) lib/action_dispatch/middleware/host_authorization.rb:83:in `call'
+webpacker (4.2.2) lib/webpacker/dev_server_proxy.rb:23:in `perform_request'
+rack-proxy (0.6.5) lib/rack/proxy.rb:57:in `call'
+railties (6.0.2.1) lib/rails/engine.rb:526:in `call'
+puma (4.3.3) lib/puma/configuration.rb:228:in `call'
+puma (4.3.3) lib/puma/server.rb:682:in `handle_request'
+puma (4.3.3) lib/puma/server.rb:472:in `process_client'
+puma (4.3.3) lib/puma/server.rb:328:in `block in run'
+puma (4.3.3) lib/puma/thread_pool.rb:134:in `block in spawn_thread'
+Started GET "/users.3" for ::1 at 2020-03-11 12:01:39 +0000
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  
+ActionController::RoutingError (No route matches [GET] "/users.3"):
+  
+actionpack (6.0.2.1) lib/action_dispatch/middleware/debug_exceptions.rb:36:in `call'
+web-console (4.0.1) lib/web_console/middleware.rb:132:in `call_app'
+web-console (4.0.1) lib/web_console/middleware.rb:28:in `block in call'
+web-console (4.0.1) lib/web_console/middleware.rb:17:in `catch'
+web-console (4.0.1) lib/web_console/middleware.rb:17:in `call'
+actionpack (6.0.2.1) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (6.0.2.1) lib/rails/rack/logger.rb:38:in `call_app'
+railties (6.0.2.1) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (6.0.2.1) lib/active_support/tagged_logging.rb:80:in `block in tagged'
+activesupport (6.0.2.1) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (6.0.2.1) lib/active_support/tagged_logging.rb:80:in `tagged'
+railties (6.0.2.1) lib/rails/rack/logger.rb:26:in `call'
+sprockets-rails (3.2.1) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (6.0.2.1) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (6.0.2.1) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.2.2) lib/rack/method_override.rb:24:in `call'
+rack (2.2.2) lib/rack/runtime.rb:22:in `call'
+activesupport (6.0.2.1) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (6.0.2.1) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (6.0.2.1) lib/action_dispatch/middleware/static.rb:126:in `call'
+rack (2.2.2) lib/rack/sendfile.rb:110:in `call'
+actionpack (6.0.2.1) lib/action_dispatch/middleware/host_authorization.rb:83:in `call'
+webpacker (4.2.2) lib/webpacker/dev_server_proxy.rb:23:in `perform_request'
+rack-proxy (0.6.5) lib/rack/proxy.rb:57:in `call'
+railties (6.0.2.1) lib/rails/engine.rb:526:in `call'
+puma (4.3.3) lib/puma/configuration.rb:228:in `call'
+puma (4.3.3) lib/puma/server.rb:682:in `handle_request'
+puma (4.3.3) lib/puma/server.rb:472:in `process_client'
+puma (4.3.3) lib/puma/server.rb:328:in `block in run'
+puma (4.3.3) lib/puma/thread_pool.rb:134:in `block in spawn_thread'
+Started GET "/users/3" for ::1 at 2020-03-11 12:01:43 +0000
+Processing by UserController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/user_controller.rb:9:in `show'
+  Rendering user/show.html.erb within layouts/application
+  Rendered user/show.html.erb within layouts/application (Duration: 0.1ms | Allocations: 12)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 106ms (Views: 55.6ms | ActiveRecord: 1.3ms | Allocations: 8195)
+
+
+Started GET "/user/find" for ::1 at 2020-03-11 12:02:03 +0000
+Processing by UserController#new as HTML
+  Rendering user/find.html.erb within layouts/application
+  Rendered user/find.html.erb within layouts/application (Duration: 5.4ms | Allocations: 569)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 43ms (Views: 40.7ms | ActiveRecord: 0.0ms | Allocations: 4374)
+
+
+Started POST "/users" for ::1 at 2020-03-11 12:02:20 +0000
+Processing by UserController#create as HTML
+  Parameters: {"authenticity_token"=>"SfEBCvumVl0J9Fc4BTjlOfX0/CZuCO1K2QQazJkjhmxXq+HSlgBhBisx9gjsbTCJaJw3E2+s38auhvEPq/G8Tg==", "user"=>{"username"=>"koenoe"}, "commit"=>"Create User"}
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/user_controller.rb:18:in `create'
+  [1m[36mUser Create (0.4ms)[0m  [1m[32mINSERT INTO "users" ("username", "favourite_language", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["username", "koenoe"], ["favourite_language", "JavaScript"], ["created_at", "2020-03-11 12:02:22.053952"], ["updated_at", "2020-03-11 12:02:22.053952"]]
+  ↳ app/controllers/user_controller.rb:18:in `create'
+  [1m[35m (1.4ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/user_controller.rb:18:in `create'
+Completed 500 Internal Server Error in 1352ms (ActiveRecord: 1.9ms | Allocations: 143161)
+
+
+  
+NoMethodError (undefined method `user_path' for #<UserController:0x00007fd0891a3ce8>
+Did you mean?  users_path):
+  
+app/controllers/user_controller.rb:19:in `create'
+Started GET "/users/3" for ::1 at 2020-03-11 12:02:36 +0000
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by UserController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/user_controller.rb:9:in `show'
+  Rendering user/show.html.erb within layouts/application
+  Rendered user/show.html.erb within layouts/application (Duration: 0.1ms | Allocations: 12)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 37ms (Views: 21.1ms | ActiveRecord: 1.5ms | Allocations: 9665)
+
+
+Started GET "/users/4" for ::1 at 2020-03-11 12:02:40 +0000
+Processing by UserController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/user_controller.rb:9:in `show'
+  Rendering user/show.html.erb within layouts/application
+  Rendered user/show.html.erb within layouts/application (Duration: 0.1ms | Allocations: 10)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 28ms (Views: 23.0ms | ActiveRecord: 0.3ms | Allocations: 4303)
+
+
+Started GET "/user/find" for ::1 at 2020-03-11 12:03:56 +0000
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by UserController#new as HTML
+  Rendering user/find.html.erb within layouts/application
+  Rendered user/find.html.erb within layouts/application (Duration: 1.6ms | Allocations: 574)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 32ms (Views: 20.7ms | ActiveRecord: 0.9ms | Allocations: 8061)
+
+
+Started POST "/users" for ::1 at 2020-03-11 12:04:26 +0000
+Processing by UserController#create as HTML
+  Parameters: {"authenticity_token"=>"KB65hU7OxfjtQOmAdZk4mvSDo7KdcP9WX1TIpS2UIEU2RFldI2jyo8+FSLCczO0qaetoh5zUzdoo1iNmH0YaZw==", "user"=>{"username"=>"zoraaver"}, "commit"=>"Create User"}
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/user_controller.rb:18:in `create'
+  [1m[36mUser Create (0.5ms)[0m  [1m[32mINSERT INTO "users" ("username", "favourite_language", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["username", "zoraaver"], ["favourite_language", "HTML"], ["created_at", "2020-03-11 12:04:27.467187"], ["updated_at", "2020-03-11 12:04:27.467187"]]
+  ↳ app/controllers/user_controller.rb:18:in `create'
+  [1m[35m (1.5ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/user_controller.rb:18:in `create'
+Redirected to http://localhost:3000/users/5
+Completed 302 Found in 477ms (ActiveRecord: 2.1ms | Allocations: 22131)
+
+
+Started GET "/users/5" for ::1 at 2020-03-11 12:04:27 +0000
+Processing by UserController#show as HTML
+  Parameters: {"id"=>"5"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/user_controller.rb:9:in `show'
+  Rendering user/show.html.erb within layouts/application
+  Rendered user/show.html.erb within layouts/application (Duration: 0.1ms | Allocations: 11)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 19ms (Views: 15.9ms | ActiveRecord: 0.4ms | Allocations: 4430)
+
+
+Started GET "/user/find" for ::1 at 2020-03-11 12:07:36 +0000
+Processing by UserController#new as HTML
+  Rendering user/find.html.erb within layouts/application
+  Rendered user/find.html.erb within layouts/application (Duration: 4.6ms | Allocations: 511)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 22ms (Views: 21.0ms | ActiveRecord: 0.0ms | Allocations: 4320)
+
+
+Started POST "/users" for ::1 at 2020-03-11 12:08:06 +0000
+Processing by UserController#create as HTML
+  Parameters: {"authenticity_token"=>"2zYypKV7EwXcFbVzv8adAq9WzO9YinABjIVW4prl0OHFbNJ8yN0kXv7QFENWk0iyMj4H2lkuQo37B70hqDfqww==", "user"=>{"username"=>"ching-wang"}, "commit"=>"Create User"}
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/user_controller.rb:18:in `create'
+  [1m[36mUser Create (0.4ms)[0m  [1m[32mINSERT INTO "users" ("username", "favourite_language", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["username", "ching-wang"], ["favourite_language", "Ruby"], ["created_at", "2020-03-11 12:08:07.830983"], ["updated_at", "2020-03-11 12:08:07.830983"]]
+  ↳ app/controllers/user_controller.rb:18:in `create'
+  [1m[35m (2.2ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/user_controller.rb:18:in `create'
+Redirected to http://localhost:3000/users/6
+Completed 302 Found in 1540ms (ActiveRecord: 2.7ms | Allocations: 97321)
+
+
+Started GET "/users/6" for ::1 at 2020-03-11 12:08:07 +0000
+Processing by UserController#show as HTML
+  Parameters: {"id"=>"6"}
+  [1m[36mUser Load (0.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/user_controller.rb:9:in `show'
+  Rendering user/show.html.erb within layouts/application
+  Rendered user/show.html.erb within layouts/application (Duration: 0.1ms | Allocations: 10)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 10ms (Views: 8.2ms | ActiveRecord: 0.1ms | Allocations: 4316)
+
+
+Started GET "/user/find" for ::1 at 2020-03-11 12:48:48 +0000
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by UserController#new as HTML
+  Rendering user/find.html.erb within layouts/application
+  Rendered user/find.html.erb within layouts/application (Duration: 10.9ms | Allocations: 755)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 57ms (Views: 44.9ms | ActiveRecord: 0.0ms | Allocations: 8848)
+
+
+Started POST "/users" for ::1 at 2020-03-11 12:48:51 +0000
+Processing by UserController#create as HTML
+  Parameters: {"authenticity_token"=>"+TfTWA8Lagg7v/nf+6DVZqkJNmSESlohM81Tg64OkLnnbTOAYq1dUxl6WO8S9QDWNGH9UYXuaK1ET7hAnNyqmw==", "user"=>{"username"=>"awdawda"}, "commit"=>"Find User"}
+Completed 500 Internal Server Error in 247ms (ActiveRecord: 0.0ms | Allocations: 2747)
+
+
+  
+NoMethodError (undefined method `first' for nil:NilClass):
+  
+app/models/user.rb:12:in `favourite_programming_language'
+app/controllers/user_controller.rb:16:in `create'
+Started GET "/user/find" for ::1 at 2020-03-11 12:52:56 +0000
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by UserController#new as HTML
+  Rendering user/find.html.erb within layouts/application
+  Rendered user/find.html.erb within layouts/application (Duration: 1.3ms | Allocations: 453)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 48ms (Views: 29.3ms | ActiveRecord: 0.9ms | Allocations: 8090)
+
+
+Started POST "/users" for ::1 at 2020-03-11 12:53:00 +0000
+Processing by UserController#create as HTML
+  Parameters: {"authenticity_token"=>"dEp0qIXwdhw/xAiVywGyJeKaQTwNf+CGtCfL6CRqwvRqEJRw6FZBRx0BqaUiVGeVf/KKCQzb0grDpSArFrj41g==", "user"=>{"username"=>"asd"}, "commit"=>"Find User"}
+Completed 500 Internal Server Error in 532ms (ActiveRecord: 0.0ms | Allocations: 2734)
+
+
+  
+NoMethodError (undefined method `first' for nil:NilClass):
+  
+app/models/user.rb:13:in `favourite_programming_language'
+app/controllers/user_controller.rb:16:in `create'
+Started GET "/user/find" for ::1 at 2020-03-11 12:55:30 +0000
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by UserController#new as HTML
+Completed 500 Internal Server Error in 22ms (ActiveRecord: 0.0ms | Allocations: 998)
+
+
+  
+LoadError (cannot load such file -- pry):
+  
+app/models/user.rb:2:in `<main>'
+app/controllers/user_controller.rb:4:in `new'
+Started GET "/user/find" for ::1 at 2020-03-11 12:57:05 +0000
+Processing by UserController#new as HTML
+Completed 500 Internal Server Error in 21ms (ActiveRecord: 0.0ms | Allocations: 2768)
+
+
+  
+LoadError (cannot load such file -- pry):
+  
+app/models/user.rb:2:in `<main>'
+app/controllers/user_controller.rb:4:in `new'
+Started GET "/user/find" for ::1 at 2020-03-11 12:57:39 +0000
+  [1m[35m (0.8ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (0.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by UserController#new as HTML
+Completed 500 Internal Server Error in 15ms (ActiveRecord: 0.0ms | Allocations: 1047)
+
+
+  
+LoadError (cannot load such file -- pry):
+  
+app/models/user.rb:2:in `<main>'
+app/controllers/user_controller.rb:4:in `new'
+Started GET "/user/find" for ::1 at 2020-03-11 12:58:40 +0000
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by UserController#new as HTML
+  Rendering user/find.html.erb within layouts/application
+  Rendered user/find.html.erb within layouts/application (Duration: 62.2ms | Allocations: 2277)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 168ms (Views: 139.7ms | ActiveRecord: 1.5ms | Allocations: 13026)
+
+
+Started POST "/users" for ::1 at 2020-03-11 12:58:44 +0000
+Processing by UserController#create as HTML
+  Parameters: {"authenticity_token"=>"c2gE0knb4L+PA9cto/EMQJZ/ZrCdMHF/p2Y6yHSakAxtMuQKJH3X5K3Gdh1KpNnwCxethZyUQ/PQ5NELRkiqLg==", "user"=>{"username"=>"asd"}, "commit"=>"Find User"}
+Completed 500 Internal Server Error in 52435ms (ActiveRecord: 0.0ms | Allocations: 77395)
+
+
+  
+SystemExit (exit):
+  
+(byebug):1:in `exit'
+(byebug):1:in `favourite_programming_language'
+app/models/user.rb:10:in `favourite_programming_language'
+app/controllers/user_controller.rb:16:in `create'
+Started GET "/user/find" for ::1 at 2020-03-11 13:00:42 +0000
+  [1m[35m (4.6ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by UserController#new as HTML
+  Rendering user/find.html.erb within layouts/application
+  Rendered user/find.html.erb within layouts/application (Duration: 39.0ms | Allocations: 251892)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 311ms (Views: 149.4ms | ActiveRecord: 16.4ms | Allocations: 1947992)
+
+
+Started GET "/find" for ::1 at 2020-03-11 13:00:55 +0000
+  [1m[35m (1.0ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by UserController#new as HTML
+  Rendering user/find.html.erb within layouts/application
+  Rendered user/find.html.erb within layouts/application (Duration: 36.6ms | Allocations: 271948)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 299ms (Views: 151.9ms | ActiveRecord: 14.6ms | Allocations: 2092823)
+
+
+Started POST "/users" for ::1 at 2020-03-11 13:01:01 +0000
+Processing by UserController#create as HTML
+  Parameters: {"authenticity_token"=>"kkDovLJnfCKIZxupdLpx71IIprB1oyJTsq9JJMNpgLyMGghk38FLeaqiupmd76Rfz2BthXQHEN/FLaLn8bu6ng==", "user"=>{"username"=>"asd"}, "commit"=>"Find User"}
+Completed 500 Internal Server Error in 9972ms (ActiveRecord: 0.0ms | Allocations: 623320)
+
+
+  
+SystemExit (exit):
+  
+(byebug):1:in `exit'
+(byebug):1:in `favourite_programming_language'
+app/models/user.rb:10:in `favourite_programming_language'
+app/controllers/user_controller.rb:16:in `create'
+Started GET "/find" for ::1 at 2020-03-11 13:13:47 +0000
+  [1m[35m (4.5ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by UserController#new as HTML
+  Rendering user/find.html.erb within layouts/application
+  Rendered user/find.html.erb within layouts/application (Duration: 41.5ms | Allocations: 271948)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 287ms (Views: 160.7ms | ActiveRecord: 0.0ms | Allocations: 1915017)
+
+
+Started POST "/users" for ::1 at 2020-03-11 13:13:56 +0000
+Processing by UserController#create as HTML
+  Parameters: {"authenticity_token"=>"G0DX7oBugFwOXCg0dddHfsf4tfWGSN7tAPiJ48pRr04FGjc27ci3ByyZiQScgpLOWpB+wIfs7GF3emIg+IOVbA==", "user"=>{"username"=>"andrew-lewelll"}, "commit"=>"Find User"}
+Completed 500 Internal Server Error in 347ms (ActiveRecord: 0.0ms | Allocations: 652805)
+
+
+  
+Octokit::NotFound (GET https://api.github.com/users/andrew-lewelll/repos: 404 - Not Found // See: https://developer.github.com/v3/repos/#list-user-repositories):
+  
+app/models/user.rb:7:in `favourite_programming_language'
+app/controllers/user_controller.rb:16:in `create'
+Started GET "/find" for ::1 at 2020-03-11 13:15:51 +0000
+  [1m[35m (1.0ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by UserController#new as HTML
+  Rendering user/find.html.erb within layouts/application
+  Rendered user/find.html.erb within layouts/application (Duration: 46.2ms | Allocations: 271948)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 319ms (Views: 163.7ms | ActiveRecord: 13.1ms | Allocations: 2102018)
+
+
+Started POST "/users" for ::1 at 2020-03-11 13:15:56 +0000
+Processing by UserController#create as HTML
+  Parameters: {"authenticity_token"=>"FA/RpM4sOYrxyhG9frTBWZsOvhl7doHNrNUQqH+X0I4KVTF8o4oO0dMPsI2X4RTpBmZ1LHrSs0HbV/trTUXqrA==", "user"=>{"username"=>"as"}, "commit"=>"Find User"}
+  [1m[35m (0.5ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/user_controller.rb:18:in `create'
+  [1m[36mUser Create (4.9ms)[0m  [1m[32mINSERT INTO "users" ("username", "favourite_language", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["username", "as"], ["favourite_language", "C"], ["created_at", "2020-03-11 13:15:58.821429"], ["updated_at", "2020-03-11 13:15:58.821429"]]
+  ↳ app/controllers/user_controller.rb:18:in `create'
+  [1m[35m (2.5ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/user_controller.rb:18:in `create'
+Redirected to http://localhost:3000/users/7
+Completed 302 Found in 2704ms (ActiveRecord: 8.0ms | Allocations: 16857190)
+
+
+Started GET "/users/7" for ::1 at 2020-03-11 13:15:58 +0000
+Processing by UserController#show as HTML
+  Parameters: {"id"=>"7"}
+  [1m[36mUser Load (1.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/controllers/user_controller.rb:9:in `show'
+  Rendering user/show.html.erb within layouts/application
+  Rendered user/show.html.erb within layouts/application (Duration: 11.2ms | Allocations: 35024)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 230ms (Views: 169.0ms | ActiveRecord: 1.4ms | Allocations: 1654549)
+
+
+Started GET "/find" for ::1 at 2020-03-11 13:27:12 +0000
+  [1m[35m (1.0ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by UserController#new as HTML
+  Rendering user/find.html.erb within layouts/application
+  Rendered user/find.html.erb within layouts/application (Duration: 45.8ms | Allocations: 292007)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 298ms (Views: 172.9ms | ActiveRecord: 0.0ms | Allocations: 2057300)
+
+
+Started POST "/users" for ::1 at 2020-03-11 13:27:26 +0000
+Processing by UserController#create as HTML
+  Parameters: {"authenticity_token"=>"vEr9e4e7LiK3noO/ACxKnr7Q43Vrxx5gvCtcV39A4AyiEB2j6h0ZeZVbIo/peZ8uI7goQGpjLOzLqbeUTZLaLg==", "user"=>{"username"=>"fake-user"}, "commit"=>"Find User"}
+  [1m[35m (0.6ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/user_controller.rb:18:in `create'
+  [1m[36mUser Create (1.6ms)[0m  [1m[32mINSERT INTO "users" ("username", "favourite_language", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["username", "fake-user"], ["favourite_language", "HTML"], ["created_at", "2020-03-11 13:27:26.764839"], ["updated_at", "2020-03-11 13:27:26.764839"]]
+  ↳ app/controllers/user_controller.rb:18:in `create'
+  [1m[35m (3.6ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/user_controller.rb:18:in `create'
+Redirected to http://localhost:3000/users/8
+Completed 302 Found in 733ms (ActiveRecord: 5.7ms | Allocations: 3024489)
+
+
+Started GET "/users/8" for ::1 at 2020-03-11 13:27:26 +0000
+Processing by UserController#show as HTML
+  Parameters: {"id"=>"8"}
+  [1m[36mUser Load (7.9ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 8], ["LIMIT", 1]]
+  ↳ app/controllers/user_controller.rb:9:in `show'
+  Rendering user/show.html.erb within layouts/application
+  Rendered user/show.html.erb within layouts/application (Duration: 1.8ms | Allocations: 17464)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 241ms (Views: 159.6ms | ActiveRecord: 7.9ms | Allocations: 1649240)
+
+
+Started GET "/find" for ::1 at 2020-03-11 13:27:45 +0000
+Processing by UserController#new as HTML
+  Rendering user/find.html.erb within layouts/application
+  Rendered user/find.html.erb within layouts/application (Duration: 33.7ms | Allocations: 237603)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 236ms (Views: 204.0ms | ActiveRecord: 0.0ms | Allocations: 1171668)
+
+
+Started POST "/users" for ::1 at 2020-03-11 13:27:48 +0000
+Processing by UserController#create as HTML
+  Parameters: {"authenticity_token"=>"5qaqhFsjAzGcrge9Ke994UzzgN5QMFB5fTlzWnu4oNr4/EpcNoU0ar5rpo3AuqhR0ZtL61GUYvUKu5iZSWqa+A==", "user"=>{"username"=>"awdawd"}, "commit"=>"Find User"}
+Completed 500 Internal Server Error in 453ms (ActiveRecord: 0.0ms | Allocations: 1747751)
+
+
+  
+NoMethodError (undefined method `first' for nil:NilClass):
+  
+app/models/user.rb:15:in `favourite_programming_language'
+app/controllers/user_controller.rb:16:in `create'
+Started GET "/find" for ::1 at 2020-03-11 13:28:20 +0000
+  [1m[35m (1.0ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by UserController#new as HTML
+  Rendering user/find.html.erb within layouts/application
+  Rendered user/find.html.erb within layouts/application (Duration: 46.5ms | Allocations: 292006)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 331ms (Views: 169.6ms | ActiveRecord: 12.7ms | Allocations: 2256879)
+
+
+Started POST "/users" for ::1 at 2020-03-11 13:28:24 +0000
+Processing by UserController#create as HTML
+  Parameters: {"authenticity_token"=>"oXM9ERMc2j2vEzWu8jr2BqyTLfAGzsRyyODQ46C5qBK/Kd3JfrrtZo3WlJ4bbyO2MfvmxQdq9v6/YjsgkmuSMA==", "user"=>{"username"=>"asdasd"}, "commit"=>"Find User"}
+Completed 500 Internal Server Error in 31851ms (ActiveRecord: 0.0ms | Allocations: 779689)
+
+
+  
+SystemExit (exit):
+  
+(byebug):1:in `exit'
+(byebug):1:in `favourite_programming_language'
+app/models/user.rb:16:in `favourite_programming_language'
+app/controllers/user_controller.rb:16:in `create'
+Started GET "/find" for ::1 at 2020-03-11 13:29:01 +0000
+  [1m[35m (1.1ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by UserController#new as HTML
+  Rendering user/find.html.erb within layouts/application
+  Rendered user/find.html.erb within layouts/application (Duration: 54.7ms | Allocations: 292006)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 381ms (Views: 192.2ms | ActiveRecord: 14.1ms | Allocations: 2255208)
+
+
+Started POST "/users" for ::1 at 2020-03-11 13:29:12 +0000
+Processing by UserController#create as HTML
+  Parameters: {"authenticity_token"=>"svTy+6yd0GpTN76pA23EWZAME8MxbCoQCm79CbFlS4ysrhIjwTvnMXHyH5nqOBHpDWTY9jDIGJx97BbKg7dxrg==", "user"=>{"username"=>"asd"}, "commit"=>"Find User"}
+Completed 500 Internal Server Error in 4123ms (ActiveRecord: 0.0ms | Allocations: 669800)
+
+
+  
+SystemExit (exit):
+  
+(byebug):1:in `exit'
+(byebug):1:in `favourite_programming_language'
+app/models/user.rb:16:in `favourite_programming_language'
+app/controllers/user_controller.rb:16:in `create'
+Started GET "/find" for ::1 at 2020-03-11 13:29:45 +0000
+  [1m[35m (1.7ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by UserController#new as HTML
+  Rendering user/find.html.erb within layouts/application
+  Rendered user/find.html.erb within layouts/application (Duration: 42.4ms | Allocations: 292006)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 282ms (Views: 152.1ms | ActiveRecord: 6.2ms | Allocations: 2256818)
+
+
+Started POST "/users" for ::1 at 2020-03-11 13:29:50 +0000
+Processing by UserController#create as HTML
+  Parameters: {"authenticity_token"=>"uT0K2lX3QovPn5+KnFbzNgznrodviHPoK0muhKfb/bynZ+oCOFF10O1aPrp1AyaGkY9lsm4sQWRcy0VHlQnHng==", "user"=>{"username"=>"asd"}, "commit"=>"Find User"}
+Completed 500 Internal Server Error in 473ms (ActiveRecord: 0.0ms | Allocations: 1737072)
+
+
+  
+NoMethodError (undefined method `first' for nil:NilClass):
+  
+app/models/user.rb:15:in `favourite_programming_language'
+app/controllers/user_controller.rb:16:in `create'
+Started GET "/find" for ::1 at 2020-03-11 13:30:22 +0000
+  [1m[35m (1.4ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by UserController#new as HTML
+  Rendering user/find.html.erb within layouts/application
+  Rendered user/find.html.erb within layouts/application (Duration: 37.8ms | Allocations: 292006)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 305ms (Views: 160.3ms | ActiveRecord: 12.9ms | Allocations: 2257634)
+
+
+Started POST "/users" for ::1 at 2020-03-11 13:30:27 +0000
+Processing by UserController#create as HTML
+  Parameters: {"authenticity_token"=>"vW466is62x4+Azx+xQWDn4IU8pRdZOp7uuzBQ5PdHOyjNNoyRpzsRRzGnU4sUFYvH3w5oVzA2PfNbiqAoQ8mzg==", "user"=>{"username"=>"asd"}, "commit"=>"Find User"}
+  [1m[35m (0.7ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/user_controller.rb:18:in `create'
+  [1m[36mUser Create (1.5ms)[0m  [1m[32mINSERT INTO "users" ("username", "favourite_language", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["username", "asd"], ["favourite_language", "unknown. Please check if user exists and is spelt correctly."], ["created_at", "2020-03-11 13:30:27.662321"], ["updated_at", "2020-03-11 13:30:27.662321"]]
+  ↳ app/controllers/user_controller.rb:18:in `create'
+  [1m[35m (2.2ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/user_controller.rb:18:in `create'
+Redirected to http://localhost:3000/users/9
+Completed 302 Found in 432ms (ActiveRecord: 4.5ms | Allocations: 1341385)
+
+
+Started GET "/users/9" for ::1 at 2020-03-11 13:30:27 +0000
+Processing by UserController#show as HTML
+  Parameters: {"id"=>"9"}
+  [1m[36mUser Load (1.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = ? LIMIT ?[0m  [["id", 9], ["LIMIT", 1]]
+  ↳ app/controllers/user_controller.rb:9:in `show'
+  Rendering user/show.html.erb within layouts/application
+  Rendered user/show.html.erb within layouts/application (Duration: 1.6ms | Allocations: 17465)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 226ms (Views: 165.7ms | ActiveRecord: 1.4ms | Allocations: 1647536)
+
+
+Started GET "/find" for ::1 at 2020-03-11 13:31:26 +0000
+  [1m[35m (1.5ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+Processing by UserController#new as HTML
+  Rendering user/find.html.erb within layouts/application
+  Rendered user/find.html.erb within layouts/application (Duration: 42.0ms | Allocations: 292006)
+[Webpacker] Everything's up-to-date. Nothing to do
+Completed 200 OK in 341ms (Views: 163.8ms | ActiveRecord: 22.2ms | Allocations: 2280714)
+
+
+Started POST "/users" for ::1 at 2020-03-11 13:31:31 +0000
+Processing by UserController#create as HTML
+  Parameters: {"authenticity_token"=>"E8cG2Z1nZreJqDG46DQCipdkYnN6ItjSViBppIENmGcNneYB8MFR7KttkIgBYdc6CgypRnuG6l4hooJns9+iRQ==", "user"=>{"username"=>"     "}, "commit"=>"Find User"}
+Completed 500 Internal Server Error in 316ms (ActiveRecord: 0.0ms | Allocations: 680708)
+
+
+  
+Octokit::NotFound (GET https://api.github.com/users/%20%20%20%20%20/repos: 404 - Not Found // See: https://developer.github.com/v3/repos/#list-user-repositories):
+  
+app/models/user.rb:8:in `favourite_programming_language'
+app/controllers/user_controller.rb:16:in `create'
