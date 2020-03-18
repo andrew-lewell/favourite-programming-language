@@ -5,15 +5,18 @@ class User < ApplicationRecord
     validates :username, format: { without: /\s/ }
 
     def favourite_programming_language(username)
+        lang = {}
         repositories = Octokit.repositories(username)
 
-        fpl = repositories.inject(Hash.new(0)) do |languages, repository|
-                languages[repository.language] += repository.size
-                languages
-              end
+        fpl = repositories.select { |repo| repo["fork"] == false }
+
+        fpl.each{ |repo|
+                lang[repo.language] ||= 0
+                lang[repo.language] += 1
+        }
 
         if fpl != {}
-            fpl.max_by { |language, total_size| total_size }.first
+            lang.max_by { |language, size| size }.first
         else 
             "unknown. Please check if user exists and is spelt correctly."
         end
